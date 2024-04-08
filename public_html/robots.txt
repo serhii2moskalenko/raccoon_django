@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: 
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /assets/vendor/
+Disallow: /favicon/
+Disallow: /forms/

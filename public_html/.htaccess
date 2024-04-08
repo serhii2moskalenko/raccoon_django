@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Redirect all HTTP requests to HTTPS with www
+RewriteCond %{HTTP_HOST} ^www\.raccoon\.com\.ua$ [NC]
+RewriteRule ^(.*)$ https://raccoon.com.ua/$1/ [L,R=301]
+
+# Redirect all non-HTTPS requests to HTTPS with or without www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^raccoon\.com\.ua$ [NC]
+RewriteRule ^(.*)$ https://raccoon.com.ua/$1/ [L,R=301]
+
+# Redirect requests for index.html to the root URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://raccoon.com.ua/ [R=301,L]
